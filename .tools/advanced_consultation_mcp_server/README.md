@@ -485,8 +485,8 @@ Add to `.vscode/mcp.json` in your project:
     "advanced-consultation": {
       "command": "python -m advanced_consultation_mcp.server",
       "env": {
-        "PYTHONPATH": "C:\\_VK_Code\\00_2026_Priority\\20-Gemini-Wrapper-Interface\\Advanced_Consultation_MCP_Server\\mcp_server",
-        "ADVANCED_CONSULTATION_PROJECT_ROOT": "C:\\_VK_Code\\00_2026_Priority\\20-Gemini-Wrapper-Interface"
+        "PYTHONPATH": "/path/to/your/project/.tools/advanced_consultation_mcp_server/mcp_server",
+        "ADVANCED_CONSULTATION_PROJECT_ROOT": "/path/to/your/project"
       }
     }
   }
@@ -503,10 +503,10 @@ Add to your `claude_desktop_config.json`:
     "advanced-consultation": {
       "command": "python",
       "args": ["-m", "advanced_consultation_mcp.server"],
-      "cwd": "C:\\_VK_Code\\00_2026_Priority\\20-Gemini-Wrapper-Interface\\Advanced_Consultation_MCP_Server\\mcp_server",
+      "cwd": "/path/to/your/project/.tools/advanced_consultation_mcp_server/mcp_server",
       "env": {
-        "PYTHONPATH": "C:\\_VK_Code\\00_2026_Priority\\20-Gemini-Wrapper-Interface\\Advanced_Consultation_MCP_Server\\mcp_server",
-        "ADVANCED_CONSULTATION_PROJECT_ROOT": "C:\\_VK_Code\\00_2026_Priority\\20-Gemini-Wrapper-Interface"
+        "PYTHONPATH": "/path/to/your/project/.tools/advanced_consultation_mcp_server/mcp_server",
+        "ADVANCED_CONSULTATION_PROJECT_ROOT": "/path/to/your/project"
       }
     }
   }

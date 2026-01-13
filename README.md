@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🧪 Safety-by-Design Framework for Ethanol-Water Separation Entrainer Selection
 
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
@@ -187,4 +188,6 @@ For questions or collaboration inquiries, please open an issue or contact the ma
 ---
 
 **Status**: 🚧 Active Development | **Current Phase**: Infrastructure Setup
+=======
+>>>>>>> bc927b64ce62b9bc50578b925227a072729c5808
 

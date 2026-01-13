@@ -76,7 +76,7 @@ Add the following configuration:
     "advanced-consultation": {
       "command": "python",
       "args": ["-m", "advanced_consultation_mcp.server"],
-      "cwd": "C:\\_VK_Code\\00_2026_Priority\\20-Gemini-Wrapper-Interface\\Advanced_Consultation_MCP_Server\\mcp_server"
+      "cwd": "/path/to/your/project/.tools/advanced_consultation_mcp_server/mcp_server"
     }
   }
 }
@@ -98,7 +98,7 @@ Before testing via MCP, test the scripts directly:
 
 ```bash
 # Navigate to project root
-cd C:\_VK_Code\00_2026_Priority\20-Gemini-Wrapper-Interface
+cd /path/to/your/project
 
 # Test Stage 1
 python Advanced_Consultation_MCP_Server/01_Understand_Context_Create_Prompt.py \
