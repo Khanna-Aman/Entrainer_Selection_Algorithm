@@ -31,31 +31,31 @@ A five-phase computational pipeline that:
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                    ENTRAINER SELECTION FRAMEWORK                         │
+│                    ENTRAINER SELECTION FRAMEWORK                        │
 ├─────────────────────────────────────────────────────────────────────────┤
-│                                                                          │
-│  Phase I: Domain Mapping          Phase II: Multi-Vector Selection       │
-│  ┌─────────────────────┐         ┌─────────────────────────────────┐    │
-│  │ Literature Survey   │         │  Engine A    Engine B   Engine C │    │
-│  │ Database Scoping    │────────▶│  Graph-RAG   TRIZ      RDKit     │    │
-│  │ Cluster Definition  │         │  (AI)       (Heuristic)(Algorithmic)│ │
-│  │ 100K+ → 500 clusters│         │     └────────┬─────────┘         │    │
-│  └─────────────────────┘         └──────────────┼───────────────────┘    │
-│                                                 │                        │
-│                                                 ▼                        │
+│                                                                         │
+│  Phase I: Domain Mapping          Phase II: Multi-Vector Selection      │
+│  ┌─────────────────────┐         ┌─────────────────────────────────────┐│
+│  │ Literature Survey   │         │  Engine A    Engine B   Engine C    ││
+│  │ Database Scoping    │────────▶│  Graph-RAG   TRIZ      RDKit        ││
+│  │ Cluster Definition  │         │  (AI)       (Heuristic)(Algorithmic)││
+│  │ 100K+ → 500 clusters│         │     └────────┬─────────┘            ││
+│  └─────────────────────┘         └──────────────┼──────────────────────┘│
+│                                                 │                       │
+│                                                 ▼                       │
 │  Phase III: Deep Traversal       Phase IV: Bayesian Optimization        │
 │  ┌─────────────────────┐         ┌─────────────────────────────────┐    │
 │  │ Neo4j Graph DB      │         │  Gaussian Process Surrogate     │    │
-│  │ Similarity Expansion│────────▶│  qEHVI Acquisition Function     │    │
+│  │ Similarity Expansion│────────▶│  qEHVI Acquisition Function    │    │
 │  │ 75-150 → 150-300    │         │  Pareto Frontier Identification │    │
-│  └─────────────────────┘         └──────────────┬───────────────────┘    │
-│                                                 │                        │
-│                                                 ▼                        │
-│                           Phase V: Simulation & Validation               │
+│  └─────────────────────┘         └──────────────┬──────────────────┘    │
+│                                                 │                       │
+│                                                 ▼                       │
+│                           Phase V: Simulation & Validation              │
 │                           ┌─────────────────────────────────┐           │
-│                           │  DWSIM Process Simulation        │           │
-│                           │  Final Top 10 Ranking            │           │
-│                           │  Pareto-Optimal Library Output   │           │
+│                           │  DWSIM Process Simulation       │           │
+│                           │  Final Top 10 Ranking           │           │
+│                           │  Pareto-Optimal Library Output  │           │
 │                           └─────────────────────────────────┘           │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
