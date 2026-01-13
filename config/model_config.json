@@ -1,0 +1,53 @@
+{
+  "models": {
+    "gemini-3-pro-preview": {
+      "displayName": "Gemini 3 Pro",
+      "defaults": {
+        "temperature": 0,
+        "topP": 0.95,
+        "maxOutputTokens": 65535,
+        "thinkingBudget": "HIGH"
+      }
+    },
+    "gemini-3-flash": {
+      "displayName": "Gemini 3 Flash",
+      "defaults": {
+        "temperature": 0.7,
+        "topP": 0.95,
+        "maxOutputTokens": 65535,
+        "thinkingBudget": "MEDIUM"
+      }
+    },
+    "claude-opus-4-5-20250514": {
+      "displayName": "Claude 4.5 Opus",
+      "defaults": {
+        "temperature": 0,
+        "topP": 0.95,
+        "maxOutputTokens": 65535,
+        "thinkingBudget": "HIGH"
+      }
+    }
+  },
+  "vertexai": {
+    "project": "${GOOGLE_CLOUD_PROJECT}",
+    "location": "${GOOGLE_CLOUD_LOCATION:-global}"
+  },
+  "safetySettings": [
+    {
+      "category": "HARM_CATEGORY_HATE_SPEECH",
+      "threshold": "OFF"
+    },
+    {
+      "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+      "threshold": "OFF"
+    },
+    {
+      "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+      "threshold": "OFF"
+    },
+    {
+      "category": "HARM_CATEGORY_HARASSMENT",
+      "threshold": "OFF"
+    }
+  ]
+}

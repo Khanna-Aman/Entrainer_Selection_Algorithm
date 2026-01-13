@@ -1,0 +1,129 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "entrainer-selection"
+version = "0.1.0"
+description = "Safety-by-Design Framework for Ethanol-Water Separation Entrainer Selection"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+authors = [
+    { name = "Your Name", email = "your.email@example.com" }
+]
+keywords = [
+    "cheminformatics",
+    "extractive-distillation",
+    "bayesian-optimization",
+    "graph-rag",
+    "process-simulation"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Chemistry",
+]
+
+dependencies = [
+    # Core Scientific Computing
+    "numpy>=1.26.0",
+    "pandas>=2.1.0",
+    "scipy>=1.11.0",
+    
+    # Cheminformatics (RDKit installed via conda)
+    # "rdkit>=2023.09.1",  # Install via: conda install -c conda-forge rdkit
+    
+    # Graph Database
+    "neo4j>=5.14.0",
+    
+    # Vector Database
+    "chromadb>=0.4.18",
+    
+    # Machine Learning & Optimization
+    "torch>=2.1.0",
+    "botorch>=0.9.5",
+    "gpytorch>=1.11",
+    
+    # LLM Integration
+    "google-generativeai>=0.3.0",
+    "langchain>=0.1.0",
+    "langchain-google-genai>=0.0.6",
+    
+    # Configuration & Validation
+    "pydantic>=2.5.0",
+    "pydantic-settings>=2.1.0",
+    "python-dotenv>=1.0.0",
+    "pyyaml>=6.0.1",
+    
+    # HTTP & API
+    "httpx>=0.25.0",
+    "aiohttp>=3.9.0",
+    
+    # Utilities
+    "rich>=13.7.0",
+    "typer>=0.9.0",
+    "loguru>=0.7.2",
+    "tqdm>=4.66.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.1.0",
+    "pytest-mock>=3.12.0",
+    "mypy>=1.7.0",
+    "ruff>=0.1.6",
+    "pre-commit>=3.6.0",
+    "ipykernel>=6.27.0",
+    "jupyter>=1.0.0",
+]
+docs = [
+    "mkdocs>=1.5.0",
+    "mkdocs-material>=9.5.0",
+    "mkdocstrings[python]>=0.24.0",
+]
+
+[project.scripts]
+entrainer = "entrainer_selection.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/YOUR_USERNAME/entrainer-selection"
+Documentation = "https://github.com/YOUR_USERNAME/entrainer-selection#readme"
+Repository = "https://github.com/YOUR_USERNAME/entrainer-selection"
+Issues = "https://github.com/YOUR_USERNAME/entrainer-selection/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/entrainer_selection"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+asyncio_mode = "auto"
+addopts = "-v --tb=short"
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests requiring external services",
+    "unit: marks unit tests",
+]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+select = ["E", "F", "I", "N", "W", "UP", "B", "C4", "SIM"]
+ignore = ["E501"]
+
+[tool.ruff.isort]
+known-first-party = ["entrainer_selection"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+

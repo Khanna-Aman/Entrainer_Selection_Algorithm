@@ -1,0 +1,21 @@
+[project]
+name = "advanced-consultation-mcp"
+version = "1.1.0"
+description = "MCP Server for Advanced Consultation - Three-stage Gemini 3 Pro consultation workflow"
+readme = "../README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp>=1.0.0",
+    "pydantic>=2.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project.scripts]
+advanced-consultation-mcp = "advanced_consultation_mcp.server:main_sync"
+
+[tool.hatch.build.targets.wheel]
+packages = ["advanced_consultation_mcp"]
+

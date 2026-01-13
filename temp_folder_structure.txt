@@ -1,0 +1,30 @@
+﻿Advanced_Consultations
+backlog
+config
+Implementation Plan
+Project Documentation
+References
+src
+Advanced_Consultations\001_Test
+Advanced_Consultations\002_MCP_Test
+Advanced_Consultations\003_Test4
+Advanced_Consultations\004_MCP_Test_Verification
+Advanced_Consultations\005_MCP_Server_Test
+Advanced_Consultations\006_Direct_Script_Test
+References\04_LLM_Levers
+References\Advanced_Consultation_MCP_Server
+References\04_LLM_Levers\llm_wrappers
+References\04_LLM_Levers\Prompts_for_Advanced_LLM_Tasks
+References\Advanced_Consultation_MCP_Server\Consultations
+References\Advanced_Consultation_MCP_Server\mcp_server
+References\Advanced_Consultation_MCP_Server\mcp_server\advanced_consultation_mcp
+src\entrainer_selection
+src\entrainer_selection\core
+src\entrainer_selection\phases
+src\entrainer_selection\phases\phase_1
+src\entrainer_selection\phases\phase_2a
+src\entrainer_selection\phases\phase_2b
+src\entrainer_selection\phases\phase_2c
+src\entrainer_selection\phases\phase_3
+src\entrainer_selection\phases\phase_4
+src\entrainer_selection\phases\phase_5

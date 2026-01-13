@@ -1,0 +1,84 @@
+# =============================================================================
+# Entrainer Selection Framework - INFRASTRUCTURE Configuration (EXAMPLE)
+# =============================================================================
+# Copy this file to infra_config.yaml and update with your settings
+# Sensitive values (API keys) should be in .env file
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Project Metadata
+# -----------------------------------------------------------------------------
+project:
+  name: "Entrainer Selection Framework"
+  version: "0.1.0"
+  description: "Safety-by-Design Framework for Ethanol-Water Separation"
+
+# -----------------------------------------------------------------------------
+# Database Connections
+# -----------------------------------------------------------------------------
+databases:
+  neo4j:
+    uri: "bolt://localhost:7687"
+    database: "neo4j"
+    # Credentials in .env: NEO4J_USERNAME, NEO4J_PASSWORD
+    max_connection_pool_size: 50
+    connection_timeout: 30  # seconds
+    
+  chromadb:
+    persist_directory: "./data/chromadb"
+    collection_name: "entrainer_embeddings"
+    embedding_model: "all-MiniLM-L6-v2"
+    enable_hnsw_indexing: true
+
+# -----------------------------------------------------------------------------
+# LLM Configuration
+# -----------------------------------------------------------------------------
+llm:
+  provider: "google"  # google, anthropic
+  model: "gemini-2.0-flash"  # or gemini-1.5-pro
+  temperature: 0.0
+  max_output_tokens: 8192
+  top_p: 0.95
+  # API key in .env: GOOGLE_API_KEY
+
+# -----------------------------------------------------------------------------
+# External APIs
+# -----------------------------------------------------------------------------
+apis:
+  pubchem:
+    base_url: "https://pubchem.ncbi.nlm.nih.gov/rest/pug"
+    rate_limit_requests_per_second: 5
+    max_retries: 3
+    timeout: 30
+
+# -----------------------------------------------------------------------------
+# Simulation Engine Configuration
+# -----------------------------------------------------------------------------
+simulation:
+  engine: "dwsim"
+  dwsim_path: "C:/DWSIM8"  # Update to your DWSIM installation path
+  simulation_timeout_seconds: 120
+  max_retries_on_failure: 2
+
+# -----------------------------------------------------------------------------
+# Logging Configuration
+# -----------------------------------------------------------------------------
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  format: "{time:YYYY-MM-DD HH:mm:ss} | {level: <8} | {name}:{function}:{line} - {message}"
+  rotation: "10 MB"
+  retention: "1 week"
+  log_directory: "./logs"
+
+# -----------------------------------------------------------------------------
+# Data Directories
+# -----------------------------------------------------------------------------
+paths:
+  data_root: "./data"
+  raw_data: "./data/raw"
+  processed_data: "./data/processed"
+  models: "./data/models"
+  outputs: "./outputs"
+  cache: "./cache"
+  schemas: "./src/core/schemas"
+

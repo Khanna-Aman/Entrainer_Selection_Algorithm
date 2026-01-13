@@ -1,0 +1,143 @@
+# =============================================================================
+# Entrainer Selection Framework - SCIENCE Configuration
+# =============================================================================
+# Contains: SMARTS patterns, thresholds, thermodynamic parameters, objectives
+# Separated from infra_config.yaml for clean separation of concerns
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Phase I: Domain Mapping - Scientific Parameters
+# -----------------------------------------------------------------------------
+phase_1:
+  smarts_patterns:
+    # Functional group patterns for entrainer classification
+    alcohols: "[OX2H]"
+    glycols: "[OX2H]CC[OX2H]"
+    ethers: "[OX2]([CX4])[CX4]"
+    esters: "[CX3](=O)[OX2][CX4]"
+    ketones: "[CX3](=O)[CX4][CX4]"
+    amides: "[NX3][CX3](=O)"
+    
+  target_clusters: 500
+  min_molecules_per_cluster: 10
+
+# -----------------------------------------------------------------------------
+# Phase II-A: Graph-RAG Engine - Safety Parameters
+# -----------------------------------------------------------------------------
+phase_2a:
+  graph_rag:
+    chunk_size: 1000
+    chunk_overlap: 200
+    retrieval_top_k: 10
+    
+  safety_verification:
+    # CRITICAL FIX: Use verified APIs, not just LLM extraction
+    primary_source: "pubchem_pug"  # pubchem_pug, comptox_api
+    fallback_to_llm: true
+    required_ghs_categories: ["acute_toxicity", "flammability", "health_hazard"]
+    # CONSULTATION FIX: Configurable safety mode for circularity control
+    strict_safety_mode: true  # If true, unknown = high risk (precautionary)
+    # When false: unknown = medium risk (allows more exploration)
+
+# -----------------------------------------------------------------------------
+# Phase II-B: TRIZ Multi-Agent System
+# -----------------------------------------------------------------------------
+phase_2b:
+  agents:
+    - name: "contradiction_analyst"
+      role: "Identify technical contradictions in entrainer selection"
+    - name: "inventive_principles_expert"
+      role: "Apply TRIZ 40 principles to separation problems"
+    - name: "substance_field_analyst"
+      role: "Model entrainer-mixture interactions"
+    - name: "evolution_patterns_expert"
+      role: "Predict entrainer technology evolution"
+    - name: "effects_database_expert"
+      role: "Match physical/chemical effects to requirements"
+    - name: "synthesis_coordinator"
+      role: "Integrate agent outputs into recommendations"
+      
+  max_iterations: 5
+  consensus_threshold: 0.7
+
+# -----------------------------------------------------------------------------
+# Phase II-C: Cheminformatics Clustering
+# -----------------------------------------------------------------------------
+phase_2c:
+  clustering:
+    fingerprint_type: "morgan"  # morgan, rdkit, maccs
+    fingerprint_radius: 2
+    fingerprint_bits: 2048
+    
+  diversity:
+    # CRITICAL FIX: Tightened from 0.5 to 0.75-0.85
+    tanimoto_similarity_threshold: 0.80
+    tanimoto_scaffold_hop_threshold: 0.50  # For exploration only
+    max_cluster_size: 50
+    min_diversity_score: 0.3
+
+# -----------------------------------------------------------------------------
+# Phase III: Graph Traversal & Expansion
+# -----------------------------------------------------------------------------
+phase_3:
+  traversal:
+    max_depth: 3
+    max_neighbors_per_node: 20
+    # CRITICAL FIX: Tightened similarity threshold
+    similarity_threshold: 0.75  # Was 0.5, now 0.75
+    
+  expansion:
+    enable_scaffold_hopping: true
+    scaffold_hop_threshold: 0.50
+    max_expansion_candidates: 100
+
+# -----------------------------------------------------------------------------
+# Phase IV: Bayesian Optimization
+# -----------------------------------------------------------------------------
+phase_4:
+  mobo:
+    acquisition_function: "qEHVI"  # qEHVI, qNEHVI, qParEGO
+    num_initial_samples: 20
+    batch_size: 5
+    max_iterations: 50
+    
+  objectives:
+    efficiency:
+      weight: 0.4
+      minimize: false
+    safety:
+      weight: 0.4
+      minimize: false
+    cost:
+      weight: 0.2
+      minimize: true
+      
+  constraints:
+    # CRITICAL FIX: Add ternary azeotrope check
+    enable_ternary_azeotrope_check: true
+    min_selectivity: 1.5
+    max_viscosity: 10.0  # cP
+    min_thermal_stability: 150  # °C
+    # CONSULTATION FIX: Add melting/decomposition checks
+    max_melting_point_celsius: 20  # Must be liquid at feed temp
+    min_decomposition_temp_celsius: 150  # Must survive reboiler
+
+# -----------------------------------------------------------------------------
+# Phase V: Process Simulation - Feed & Target Specifications
+# -----------------------------------------------------------------------------
+phase_5:
+  feed_specification:
+    ethanol_mole_fraction: 0.85
+    water_mole_fraction: 0.15
+    temperature_celsius: 78.0
+    pressure_kpa: 101.325
+    feed_flow_rate_kmol_h: 100.0
+    
+  targets:
+    min_ethanol_purity: 0.995  # 99.5%
+    max_entrainer_loss: 0.001  # 0.1%
+    
+  validation:
+    compare_with_benchmark: true
+    benchmark_entrainer: "ethylene_glycol"
+

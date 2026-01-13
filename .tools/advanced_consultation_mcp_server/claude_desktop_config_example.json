@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "advanced-consultation": {
+      "command": "python",
+      "args": [
+        "-m",
+        "advanced_consultation_mcp.server"
+      ],
+      "cwd": "C:\\_VK_Code\\00_2026_Priority\\20-Gemini-Wrapper-Interface\\Advanced_Consultation_MCP_Server\\mcp_server",
+      "env": {
+        "PYTHONPATH": "C:\\_VK_Code\\00_2026_Priority\\20-Gemini-Wrapper-Interface\\Advanced_Consultation_MCP_Server\\mcp_server",
+        "ADVANCED_CONSULTATION_PROJECT_ROOT": "C:\\_VK_Code\\00_2026_Priority\\20-Gemini-Wrapper-Interface"
+      }
+    }
+  }
+}
